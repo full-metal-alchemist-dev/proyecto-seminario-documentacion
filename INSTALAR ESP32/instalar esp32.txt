@@ -1,0 +1,24 @@
+https://www.youtube.com/watch?v=4qE8rXfTqpc
+
+file
+
+preference
+
+https://dl.espressif.com/dl/package_esp32_index.json
+
+
+
+
+esp32_dev_module
+
+void setup() {
+  pinMode(2,OUTPUT);
+
+}
+
+void loop() {
+digitalWrite(2,HIGH);
+delay(1000);
+digitalWrite(2,LOW);
+delay(1000);
+}

@@ -1,0 +1,42 @@
+¿Cómo medir voltaje con Arduino? bateria 12 volts
+https://www.youtube.com/watch?v=ZMaW56bxrhI
+
+corriente maxima pin digital input arduino
+
+link busqueda en google
+https://www.google.com/search?q=corriente+maxima+pin+digital+input+arduino&sxsrf=APq-WBvjXKhVmHQ91YLWdc6yrWnEgvZj7g%3A1650833693826&ei=HbllYt2MMtiVwbkPr42QyAU&ved=0ahUKEwidj53fyq33AhXYSjABHa8GBFkQ4dUDCA4&uact=5&oq=corriente+maxima+pin+digital+input+arduino&gs_lcp=Cgdnd3Mtd2l6EAM6BwgAEEcQsAM6BwgjELACECc6BAghEApKBAhBGABKBAhGGABQiA9Y9yhgqyxoAnABeACAAZEBiAHgC5IBBDAuMTOYAQCgAQHIAQjAAQE&sclient=gws-wiz
+
+https://www.luisllamas.es/salidas-digitales-en-arduino/#:~:text=La%20intensidad%20m%C3%A1xima%20que%20puede,superar%20150%20mA%20por%20puerto.
+
+
+
+
+https://randomnerdtutorials.com/esp32-http-get-post-arduino/
+https://raw.githubusercontent.com/RuiSantosdotme/Random-Nerd-Tutorials/master/Projects/ESP32/HTTP/ESP32_HTTP_GET_JSON.ino
+https://randomnerdtutorials.com/getting-started-with-node-red-on-raspberry-pi/
+https://randomnerdtutorials.com/getting-started-with-node-red-dashboard/
+
+
+
+Silicon Labs CP210x USB to UART Bridge
+
+http://deviceinbox.com/drivers/1428-silicon-labs-cp210x-device-driver.html
+
+
+
+
+¿Cuales son las diferencias entre ESP32 y ESP8266?
+Veamos cuál es la diferencia entre los chips ESP32 y ESP8266. Tanto el ESP32 como el ESP8266 son SOC (Systems on Chip) basados en WiFi. Ambos tienen un procesador de 32 bits, el ESP32 es un CPU de doble núcleo de 80Mhz a 240MHz y el ESP8266 es un procesador de núcleo único de 160MHz.
+
+
+¿Qué es el tablero ESP32 devKit?
+El DOIT Esp32 DevKit v1 es uno de los tableros de desarrollo creados por DOIT para evaluar el módulo ESP-WROOM-32. Se basa en el microcontrolador ESP32 que cuenta con Wifi, Bluetooth, Ethernet y soporte de bajo consumo, todo en un solo chip. ESP32 DevKit contiene ESP32-WROOM, fuente de alimentación de 3,3V necesaria para el ESP32 y un convertidor USB a serie para facilitar la programación. Con esta placa y un cable USB puedes empezar a desarrollar el ESP32.
+
+
+
+Version with 30 GPIOs
+https://randomnerdtutorials.com/getting-started-with-esp32/
+https://randomnerdtutorials.com/getting-started-with-esp32/
+
+
+

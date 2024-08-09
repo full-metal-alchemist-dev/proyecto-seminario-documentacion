@@ -1,0 +1,50 @@
+- Podemos cambiarle el propietario al archivo index.pxp y abrirlo con un Editor de texto gráfico.
+
+sudo chown pi: /var/www/html/index.php
+
+
+
+http://kio4.com/raspberry/19_servidor_web.htm
+comando para cambiar
+- El propietario es el root. Vamos a hacer propietario al usuario pi
+
+sudo chown pi: /var/www/html/index.html
+
+POR SI LAS COSAS SALEN MAL
+DESINTALAR PHPMYADMIN
+
+http://howto.gandasoftwarefactory.com/desarrollo-software/2015/como-desinstalar-phpmyadmin-ubuntu-linux-20150113/
+
+
+
+desintalar mariadb
+
+https://mariadb.com/kb/en/uninstall-or-delete-mariadb-completely-for-re-installation/
+
+
+
+
+
+CONFIGURAR MYSQL EN RASPBERRY PI
+
+https://kolwidi.com/blogs/blog-kolwidi/configurar-mysql-en-raspberry-pi
+
+
+
+
+
+PARA REALIZAR TESTING
+
+usuario phpmyadmin 
+user: root
+pass: 123
+
+
+
+usuario raspberry pi
+user: pi
+pass: 123
+
+
+
+http://192.168.1.150/appweb/productos/test.php
