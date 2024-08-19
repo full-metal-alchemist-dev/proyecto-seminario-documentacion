@@ -1,0 +1,104 @@
+instalacion  LAMP (Linux, Apache, MySQL, PHP) 
+
+https://randomnerdtutorials.com/raspberry-pi-apache-mysql-php-lamp-server/
+
+mejor paso a paso
+
+root password for Raspbian
+
+    sudo passwd root
+
+
+
+1. Updating and Upgrading
+    sudo apt update && sudo apt upgrade -y
+
+2. Install Apache2 on Raspberry Pi
+    sudo apt install apache2 -y
+
+verificando la instalacion correcta
+pi@raspberrypi:~ $ cd /var/www/html
+pi@raspberrypi:/var/www/html $ ls -al
+index.html
+
+tambien puedes usar el comando
+hostname -I
+
+para obtener tu ip 
+y de esa manera ingresarla en navegador desde un navegador
+
+
+3. Install PHP on Raspberry Pi
+    sudo apt install php -y
+
+
+4. Install MySQL (MariaDB Server) on Raspberry Pi
+    sudo apt install mariadb-server php-mysql -y
+    sudo service apache2 restart
+    sudo mysql_secure_installation
+
+    You will be asked Enter current password for root (type a secure password): press Enter
+    Type in Y and press Enter to Set root password
+    Type in a password at the New password: prompt, and press Enter. Important: remember this root password, as you will need it later
+    Type in Y to Remove anonymous users
+    Type in Y to Disallow root login remotely
+    Type in Y to Remove test database and access to it
+    Type in Y to Reload privilege tables now
+
+comado para despues de la instalacion de mysql
+    pi@raspberrypi:/var/www/html $ sudo mysql --user=root --password
+    > create user admin@localhost identified by 'your_password';
+    > grant all privileges on *.* to admin@localhost;
+    > FLUSH PRIVILEGES;
+    > exit;
+
+
+5. Install phpMyAdmin on Raspberry Pi
+    
+    sudo apt install phpmyadmin -y
+
+        Select Apache2 when prompted and press the Enter key
+        Configuring phpmyadmin? OK
+        Configure database for phpmyadmin with dbconfig-common? Yes
+        Type your password and press OK
+
+
+    sudo ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
+
+Optional Step (but recommended)
+
+    pi@raspberrypi:~ $ ls -lh /var/www/
+    pi@raspberrypi:~ $ sudo chown -R pi:www-data /var/www/html/
+    pi@raspberrypi:~ $ sudo chmod -R 770 /var/www/html/
+    pi@raspberrypi:~ $ ls -lh /var/www/
+
+
+
+https://randomnerdtutorials.com/esp32-esp8266-raspberry-pi-lamp-server/
+https://randomnerdtutorials.com/visualize-esp32-esp8266-sensor-readings-from-anywhere/
+https://randomnerdtutorials.com/esp32-esp8266-mysql-database-php/
+
+
+https://pimylifeup.com/raspberry-pi-ftp/
+
+Step 1: Update System Packages
+    sudo apt update
+    sudo apt full-upgrade
+
+Step 2: Install FTP Server
+    sudo apt install vsftpd
+
+Step 3: Edit Configuration File
+    1. Run the following command:
+        sudo nano /etc/vsftpd.conf
+    2. Find (CTRL + W) and uncomment the following lines by removing the hash (#) sign:
+        write_enable=YES
+        local_umask=022
+        chroot_local_user=YES
+    3. Find the following line:
+        anonymous_enable=YES
+    Change it to:
+        anonymous_enable=NO
+    4. Add the following lines at the end of the config file:
+        user_sub_token=$USER
+        local_root=/home/$USER/FTP
