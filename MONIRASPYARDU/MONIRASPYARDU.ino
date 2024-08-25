@@ -5,6 +5,8 @@
 #define LED 5 //led regulado por el potenciometro (este led varia su intensidad segun el valor de corriente leido)
 #define boton 12 // boton  para  re-iniciar el proceso 
 #define DAC1 25 //led que varia su intensidad - pin similar a un pwm en arduino
+#define LED_BUILTIN 2 // Define the built-in LED pin (usually GPIO 2)
+
 
 int contador=0;
 
@@ -21,12 +23,12 @@ void enviar_recibir(int valorv); //llamado a funcion lectura para configurarla e
 //MODELO ESP32 30 PINES
 //ESP32 GPIOs 30
 
-const char* ssid = "CLARO_6d475a";    // NOMBRE DE TU RED WIFI
-const char* password = "519b0515Dd";  // WIFI 
+
+//http://192.168.1.150/appweb/
 
 //Your Domain name with URL path or IP address with path
-String serverName = "https://moniraspyardu.000webhostapp.com/app/productos/04agregar.php";
-const char* serverName2 = "http://moniraspyardu.000webhostapp.com/app/productos/02datav2.php?id=140&tabla=producto";
+String serverName = "http://192.168.1.150/appweb/productos/04agregar.php";
+const char* serverName2 = "http://192.168.1.150/appweb/app/productos/02datav2.php?id=140&tabla=producto";
 
 // the following variables are unsigned longs because the time, measured in
 // milliseconds, will quickly become a bigger number than can be stored in an int.
@@ -40,10 +42,15 @@ String sensorReadings;
 String sensorReadingsArr[3];
 
 
+//const char* ssid = "CATUSES47";    // NOMBRE DE TU RED WIFI
+//const char* password = "47474747";  // WIFI 
+
+const char* ssid = "CLARO1_377328";    // NOMBRE DE TU RED WIFI
+const char* password = "1XG6YFIJ7R";  // WIFI 
 
 void setup() {
 
-  Serial.begin(115200); // TENER EN CUENTA ESTE VALOR PARA ABRIR EL MONITOR SERIE DEL IDE DE ARDUINO PARA VER LAS RESPUESTAS POR CONSOLA.
+  Serial.begin(9600); // TENER EN CUENTA ESTE VALOR PARA ABRIR EL MONITOR SERIE DEL IDE DE ARDUINO PARA VER LAS RESPUESTAS POR CONSOLA.
 
   WiFi.begin(ssid, password);
   Serial.println("Connecting");
@@ -60,8 +67,8 @@ void setup() {
   pinMode(LED,OUTPUT);//configurando el pin conectado al led indicador (intensidad) como salida
   pinMode(boton,INPUT_PULLUP);//configurando el pin vinculado al boton como punto de entrada  
   pinMode(LED_BUILTIN, OUTPUT);// led que indica si el sistema esta bloqueado y amerita reseto manual
-  ledcSetup(canal_led, freq, resolucion);//configurando el valor que se enviara a la salidad(intensidad)
-  ledcAttachPin(LED, canal_led);//seteando la salida en el pin (intensidad, corriente , brillo)
+  //ledcSetup(canal_led, freq, resolucion);//configurando el valor que se enviara a la salidad(intensidad)
+  //ledcAttachPin(LED, canal_led);//seteando la salida en el pin (intensidad, corriente , brillo)
 }
 
 void loop() {
@@ -179,7 +186,9 @@ ledcWrite(canal_led, analogRead(A0));
         Serial.print(keys[i]);
         Serial.print(" = ");
         Serial.println(value);
-        sensorReadingsArr[i] = value;
+        //sensorReadingsArr[i] = value;
+        // Convert JSONVar to String before assigning it
+    sensorReadingsArr[i] = JSON.stringify(value);
       
     }
 
