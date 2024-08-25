@@ -27,8 +27,8 @@ void enviar_recibir(int valorv); //llamado a funcion lectura para configurarla e
 //http://192.168.1.150/appweb/
 
 //Your Domain name with URL path or IP address with path
-String serverName = "http://192.168.1.150/appweb/productos/04agregar.php";
-const char* serverName2 = "http://192.168.1.150/appweb/app/productos/02datav2.php?id=140&tabla=producto";
+String serverName = "http://192.168.1.150/appweb/lectura/04agregar.php";
+const char* serverName2 = "http://192.168.1.150/appweb/lectura/02datav2.php?id=140&tabla=producto";
 
 // the following variables are unsigned longs because the time, measured in
 // milliseconds, will quickly become a bigger number than can be stored in an int.
@@ -118,6 +118,9 @@ ledcWrite(canal_led, analogRead(A0));
   Serial.print(" PWM out: ");
   Serial.println(analogRead(A0));
 
+             enviar_recibir(analogRead(A0));
+
+
     if(analogRead(A0)<120)
      {
       a==0;
@@ -127,7 +130,7 @@ ledcWrite(canal_led, analogRead(A0));
    else
     {
       contador++;
-            if(contador == 2000)
+            if(contador == 0)
            {
            enviar_recibir(analogRead(A0));
             contador=0;  
@@ -153,6 +156,8 @@ ledcWrite(canal_led, analogRead(A0));
       
       HTTPClient http;
       String serverPath = serverName + "?add=0&tabla=producto&descripcion=pruebadesdeurl&costo1="+valorv+"&costo2="+valorv+"";      
+      Serial.print("request: ");
+        Serial.println(serverPath);
       // Your Domain name with URL path or IP address with path
       http.begin(serverPath.c_str());      
       // Send HTTP GET request
