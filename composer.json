@@ -1,0 +1,6 @@
+{
+    "require": {
+        "cboden/ratchet": "^0.4.3",
+        "ratchet/rfc6455": "^0.3.1"
+    }
+}
