@@ -44,20 +44,20 @@
                     const toggleButton = document.getElementById('toggleButton');
                     
                     if (status === 1) {
-                        ledStatus.textContent = "LED is ON";
+                        ledStatus.textContent = "El LED esta encendido";
                         ledStatus.style.color = "green";
                         toggleButton.classList.remove('btn-off');
                         toggleButton.classList.add('btn-on');
-                        toggleButton.textContent = "LED OFF";
+                        toggleButton.textContent = "apagar LED";
                         toggleButton.style.background = "red";
                         toggleButton.style.color = "white";
                        
                     } else {
-                        ledStatus.textContent = "LED is OFF";
+                        ledStatus.textContent = "El LED esta apagado";
                         ledStatus.style.color = "red";
                         toggleButton.classList.remove('btn-on');
                         toggleButton.classList.add('btn-off');
-                        toggleButton.textContent = "LED ON";
+                        toggleButton.textContent = "Encender LED";
                         toggleButton.style.background = "green";
                         toggleButton.style.color = "white";
                     }
@@ -117,14 +117,14 @@
 
 <body>
     <div class="container">
-        <h1 class="mb-4">Status Monitor</h1>
+        <h1 class="mb-4">Monitoreo en Tiempo Real</h1>
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">LED Status</h5>
-                        <p id="ledStatus" class="status">Loading...</p>
-                        <button id="toggleButton" class="btn btn-status">Toggle LED</button>
+                        <h5 class="card-title">Estado del LED</h5>
+                        <p id="ledStatus" class="status">Cargando...</p>
+                        <button id="toggleButton" class="btn btn-status">Cambiar estado LED</button>
                     </div>
                 </div>
             </div>
@@ -132,8 +132,8 @@
                 <table id="statusTable" class="table table-striped table-bordered">
                     <thead>
                         <tr>
-                            <th>Time</th>
-                            <th>Status</th>
+                            <th>Id</th>
+                            <th>Estado</th>
                         </tr>
                     </thead>
                     <tbody>
