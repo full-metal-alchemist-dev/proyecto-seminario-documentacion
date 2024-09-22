@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 }
 
 // SQL query to fetch potentiometer data
-$sql = "SELECT id, pot_value, recorded_at FROM potentiometer_data ORDER BY recorded_at ASC ";  // Fetch all data ordered by timestamp
+$sql = "SELECT id, pot_value, recorded_at FROM potentiometer_data ORDER BY id asc ";  // Fetch all data ordered by timestamp
 $result = $conn->query($sql);
 
 // Initialize an array to hold the fetched data
