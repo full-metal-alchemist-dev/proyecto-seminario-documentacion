@@ -41,7 +41,7 @@
 
     <script>
         let potentiometerChart;
-        const MAX_DATA_POINTS = 100; // Maximum number of data points to display
+        const MAX_DATA_POINTS = 25; // Maximum number of data points to display
 
         // Fetch LED status and update UI
         function fetchStatus() {
