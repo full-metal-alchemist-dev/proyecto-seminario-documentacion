@@ -41,7 +41,6 @@
 
     <script>
         let potentiometerChart;
-        const MAX_DATA_POINTS = 100; // Maximum number of data points to display
 
         // Fetch LED status and update UI
         function fetchStatus() {
@@ -109,15 +108,20 @@
 
         // Update the Chart.js chart
         function updateChart(chart, labels, data) {
-            if (data.length > MAX_DATA_POINTS) {
-                // Keep only the last MAX_DATA_POINTS entries
-                data = data.slice(-MAX_DATA_POINTS);
-                labels = labels.slice(-MAX_DATA_POINTS);
-            }
-
             chart.data.labels = labels;
             chart.data.datasets[0].data = data;
             chart.update();
+        }
+
+        // Toggle LED status
+        function toggleStatus() {
+            fetch('https://catuses.com/proyecto/save.php?status=1')
+                .then(response => response.text())
+                .then(data => {
+                    console.log('Response:', data);
+                    fetchStatus();
+                })
+                .catch(error => console.error('Error updating status:', error));
         }
 
         $(document).ready(function() {
@@ -138,10 +142,10 @@
             potentiometerChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: [], // Start with empty labels
+                    labels: [],
                     datasets: [{
-                        label: 'Lectura del voltaje en tiempo real',
-                        data: [], // Start with empty data
+                        label: 'lectura del voltaje en tiempo real',
+                        data: [],
                         backgroundColor: 'rgba(0, 123, 255, 0.2)',
                         borderColor: 'rgba(0, 123, 255, 1)',
                         borderWidth: 2,
@@ -154,10 +158,6 @@
                             title: {
                                 display: true,
                                 text: 'Timestamp'
-                            },
-                            ticks: {
-                                autoSkip: true, // Skip some labels if there are too many
-                                maxTicksLimit: 10 // Max number of ticks on x-axis
                             }
                         },
                         y: {
